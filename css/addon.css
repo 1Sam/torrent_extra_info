@@ -1,0 +1,90 @@
+@charset "utf-8";
+.torrent-collapse-button {
+	font-family: Trebuchet MS, 나눔고딕;
+	margin-left: 5px;
+	padding: 0 3px;
+	line-height: 1.2;
+	vertical-align: inherit;
+}
+.torrent-collapse-badge {
+	padding: 0 5px !important;
+	vertical-align: inherit !important;
+}
+.torrent-tooltip-info-button {
+	padding: 0 6px;
+	line-height: 1.3;
+	vertical-align: baseline;
+	font-size: 12px;
+}
+.torrent-tooltip-info-button + .tooltip.top {
+	margin-top: -5px;
+}
+.torrent-tooltip-info-button + .tooltip.top .tooltip-arrow {
+	bottom: -5px;
+	margin-left: -10px;
+	border-width: 10px 10px 0;
+	border-top-color: #999;
+}
+.torrent-tooltip-info-button + .tooltip .tooltip-inner {
+	text-align: justify;
+	background-color: #FFF;
+	color: #999;
+	border: 1px solid #CCC;
+	box-shadow: 1px 1px 5px #999;
+}
+.torrent-tooltip-info-button + .tooltip .tooltip-inner .list-group-item-text {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.torrent-tooltip-info-button + .tooltip .tooltip-inner .list-group-item-text:hover {
+	white-space: normal;
+}
+.torrent-ul {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-family: Trebuchet MS, 나눔고딕;
+}
+.torrent-li-files {
+	padding: 5px 15px !important;
+	/*background-color: #F1F1F1;*/
+	line-height: 1.5;
+}
+.file-size-form {
+	margin-right: 5px;
+	text-shadow: 1px 1px 3px #000;
+	margin-top: 2px;
+}
+.file-size {
+	display: inline-block;
+	text-align: right;
+	width: 80px;
+	color: #FCC67B;
+	font-style: italic;
+}
+.file-size-unit {
+	display: inline-block;
+	text-align: left;
+}
+.int_ext {
+	display: inline-block; /* 라인 맞춤과 span에 width 값 적용 위함 */
+	text-align: center;
+	width: 50px;
+	letter-spacing: 1px;
+	color: rgba(129, 236, 226, 0.9);
+	border-right: 1px dotted #CFCFCF;
+	margin-left: -5px;
+}
+.torrent-li-info p .file-size-unit {
+	color: inherit;
+}
+.file-number {
+	opacity: 0.3;
+	margin-top: 2px;
+}
+.file-name {
+	display: block;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
