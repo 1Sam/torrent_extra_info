@@ -23,8 +23,18 @@ require_once(_XE_PATH_ . 'addons/torrent_extra_info/torrent_extra_info.api.php')
 // 콜백으로 사용될 함수명 지정
 $torrentExtraInfoTrans = $addon_info->torrent_css == "Y" ? 'torrentExtraInfoTrans' : 'torrentExtraInfoTrans2';
 
-if($addon_info->torrent_tag == 'all') {
-	$temp_output = preg_replace_callback('!<(div|span|a)([^\>]*)>([^\>]*)('.$addon_info->torrent_extention.')(.*?)\<\/(div|span|a)\>!is', $torrentExtraInfoTrans, $output);
+if($addon_info->torrent_tag != 'all') {
+
+	// <a([^\>]*)>((.|\n|\r)*?)(torrent)((.|\n|\r)*?)\<\/a\>
+	//$temp_output = preg_replace_callback('!<(div|span|a)([^\>]*)>([^\>]*)('.$addon_info->torrent_extention.')(.*?)\<\/(div|span|a)\>!is', $torrentExtraInfoTrans, $output);
+	
+	//$regex = '/<a([^\>]*)>(.*?)('.$addon_info->torrent_extention.')((.|\n)*?)\<\/a\>/i';
+	//$regex = "/<(?:a|div|span)[^>]*.\Wsid=([\w]{32}).*?.".$addon_info->torrent_extention."(?:.|\n|\r)*?\<\/(?:a|div|span)>/i";
+	$regex = "/<a[^>]*.\Wsid=([\w]{32}).*?.".$addon_info->torrent_extention."(?:.|\n|\r)*?\<\/a>/i";
+	$temp_output = preg_replace_callback($regex, $torrentExtraInfoTrans, $output);
+	
+	
+	
 	//return $temp_output;
 } else {
 	//href
@@ -35,10 +45,24 @@ if($addon_info->torrent_tag == 'all') {
 	// 직접 sid 검출 source_filename 문자열에 "sid"가 있을 경우를 대비해 sid 앞에 오는 &(&amp;) 추가
 
 	// 정규식끝에 i 추가해서 torrent or TORRENT 대소문자 구별 안하게 함
-	$temp_output = preg_replace_callback("/<".$addon_info->torrent_tag."[^>]*&amp;sid=*([^'\"]+)&amp;['\"]*[^>]*>.*?".$addon_info->torrent_extention.".+?<\/".$addon_info->torrent_tag.">?/i", $torrentExtraInfoTrans, $output);
+	//$temp_output = preg_replace_callback("/<".$addon_info->torrent_tag."[^>]*&amp;sid=*([^'\"]+)&amp;['\"]*[^>]*>.*?".$addon_info->torrent_extention.".+?<\/".$addon_info->torrent_tag.">?/i", $torrentExtraInfoTrans, $output);
+	
+	// <a([^\>]*)>((.|\n|\r)*?)(torrent)((.|\n|\r)*?)\<\/a\>
+	//<a[^>]*.\Wsid=(.*?)\W.*?.torrent(?:.|\n|\r)*?\<\/a>
+	
+	// \w : 숫자, 영문, _(언더바)
+	// \W : 숫자, 영문, _(언더바)를 제외한 특수문자
+	// /i : 대소문자 구별안함
+	// .*? : 개행문자로 시작하지 않는 모든 문자열
+	// \n*? : 개행문자로 시작하는 모든 문자열
+	// (?:) : 그룹을 배열에 추가하지 않음
+	
+	$regex = "/<".$addon_info->torrent_tag."[^>]*.\Wsid=([\w]{32}).*?.".$addon_info->torrent_extention."(?:.|\n|\r)*?\<\/".$addon_info->torrent_tag.">/i";
+	$temp_output = preg_replace_callback($regex, $torrentExtraInfoTrans, $output);
 	
 	// 직접 sid 검출 source_filename 문자열에 "sid"가 있을 경우를 대비해 sid 앞에 오는 &(&amp;) 추가
 	//$temp_output = preg_replace_callback("/<".$addon_info->torrent_tag.".*&amp;sid=([^\"]+).*".$addon_info->torrent_extention.".*<\/".$addon_info->torrent_tag.">/", $torrentExtraInfoTrans, $output);
+
 }
 
 //$temp_output = preg_replace_callback("/<[div|span|a][^>]*href=['\"]*([^'\"]+)['\"]*[^>]*>.+?".$addon_info->torrent_extention.".+?<\/[div|span|a]>?/", $torrentExtraInfoTrans, $output);
