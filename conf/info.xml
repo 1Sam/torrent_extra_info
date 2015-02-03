@@ -36,19 +36,19 @@
     <description xml:lang="zh-TW">
         可將用戶資料中的暱稱圖片、用戶圖示、簽名檔等資料顯示到頁面當中。
     </description>
-    <version>1.7</version>
-    <date>2013-11-27</date>
+    <version>1.8</version>
+    <date>2015-2-3</date>
 
-    <author email_address="developers@xpressengine.com" link="http://xpressengine.com/">
-        <name xml:lang="ko">1sam Online, sushi</name>
-        <name xml:lang="vi">1sam Online, sushi</name>
-        <name xml:lang="jp">1sam Online, sushi</name>
-        <name xml:lang="zh-CN">1sam Online, sushi</name>
-        <name xml:lang="en">1sam Online, sushi</name>
-        <name xml:lang="ge">1sam Online, sushi</name>
-        <name xml:lang="es">1sam Online, sushi</name>
-        <name xml:lang="ru">1sam Online, sushi</name>
-        <name xml:lang="zh-TW">1sam Online, sushi</name>
+    <author email_address="csh@korea.com" link="http://1sam.kr/">
+        <name xml:lang="ko">1SamOnline, sushi</name>
+        <name xml:lang="vi">1SamOnline, sushi</name>
+        <name xml:lang="jp">1SamOnline, sushi</name>
+        <name xml:lang="zh-CN">1SamOnline, sushi</name>
+        <name xml:lang="en">1SamOnline, sushi</name>
+        <name xml:lang="ge">1SamOnline, sushi</name>
+        <name xml:lang="es">1SamOnline, sushi</name>
+        <name xml:lang="ru">1SamOnline, sushi</name>
+        <name xml:lang="zh-TW">1SamOnline, sushi</name>
     </author>
   	<extra_vars>
         <var name="torrent_extention">
