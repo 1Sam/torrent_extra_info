@@ -6,7 +6,7 @@
 
 function torrentExtraInfoTrans($matches) {
 
-  //return  print_r($matches,true);//"<".$matches[1]." ".$matches[2].">".$matches[3].".torrent".$matches[4]."</".$matches[5].">";
+    // print_r($matches,true);//"<".$matches[1]." ".$matches[2].">".$matches[3].".torrent".$matches[4]."</".$matches[5].">";
 
 	//$orig_text = preg_replace('/' . preg_quote($matches[5], '/') . '<\/' . $matches[6] . '>$/', '', $matches[0]);
 	
