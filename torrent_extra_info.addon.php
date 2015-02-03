@@ -21,6 +21,8 @@ Context::addCSSFile('./addons/torrent_extra_info/css/addon.css');
 
 require_once(_XE_PATH_ . 'addons/torrent_extra_info/torrent_extra_info.lib.php');
 
+require_once(_XE_PATH_ . 'addons/torrent_extra_info/torrent_extra_info.api.php');
+
 if($addon_info->torrent_css == "Y") {
 	//Bootstrap 태그로 작성
 	$torrentExtraInfoTrans = 'torrentExtraInfoTrans';
