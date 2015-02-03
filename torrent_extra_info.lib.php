@@ -122,15 +122,12 @@ function torrentExtraInfoTrans($matches) {
 		</li>';
 	}
 
-	
 	$add_code = 
-	'<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script language="JavaScript">jQuery(function(){$(".torrent-popover-info-button").popover();});</script> -->
-	<span type="button" class="torrent-collapse-button btn btn-info btn-xs" data-toggle="collapse" data-target="#t_files_'.$random_srl.'"> '.getFileSize_($total_length).' <span class="torrent-collapse-badge badge">'.$count.'</span></span>
-	<span class="torrent-tooltip-info-button btn btn-default" data-toggle="tooltip" data-placement="top" data-html="true" data-trigger="click" title="'.$t_files_info.'"><i class="fa fa-info"></i></span>
-		<div id="t_files_'.$random_srl.'" class="collapse">
-			<ul class="torrent-ul list-group">'.$t_files.'</ul>
-		</div>';
+	'<span type="button" class="torrent-collapse-button btn btn-info btn-xs" data-toggle="collapse" data-target="#t_files_'.$random_srl.'"> '.getFileSize_($total_length).' <span class="torrent-collapse-badge badge">'.$count.'</span></span>
+	<span class="torrent-popover-info-button btn btn-default" data-toggle="popover" data-placement="top" data-html="true" title="토렌트 파일 정보" data-content="'.$t_files_info.'"><i class="fa fa-info"></i></span>
+	<div id="t_files_'.$random_srl.'" class="collapse">
+		<ul class="torrent-ul list-group">'.$t_files.'</ul>
+	</div>';
 
 	/*
 	'!<(div|span|a)([^\>]*)>([^\>]*)(.torrent)(.*?)\<\/(div|span|a)\>!is'
@@ -158,7 +155,8 @@ function getFileSize_($size, $float = 0) {
      $unit = array('B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'); 
      for ($L = 0; intval($size / 1024) > 0; $L++, $size/= 1024); 
      if (($float === 0) && (intval($size) != $size)) $float = 2; 
-     return number_format($size, $float, '.', ',') ." <span class='file-size-unit'>".$unit[$L]."</span>";
+     return number_format($size, $float, '.', ',') ." <span class='file-size-unit'>".$unit[$L]."</span>
+     <script type='text/JavaScript'>jQuery(function(){jQuery('.torrent-popover-info-button').popover();});</script>";
 }
 
 // 직접 출력 코드를 변경해 보세요.
