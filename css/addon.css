@@ -1,15 +1,5 @@
 @charset "utf-8";
-.torrent-collapse-button {
-	font-family: Trebuchet MS, 나눔고딕;
-	margin-left: 5px;
-	padding: 0 3px;
-	line-height: 1.2;
-	vertical-align: inherit;
-}
-.torrent-collapse-badge {
-	padding: 0 5px !important;
-	vertical-align: inherit !important;
-}
+/* tooltip을 popover 처럼 나타내기 위한 코드 disable
 .torrent-tooltip-info-button {
 	padding: 0 6px;
 	line-height: 1.3;
@@ -39,6 +29,49 @@
 }
 .torrent-tooltip-info-button + .tooltip .tooltip-inner .list-group-item-text:hover {
 	white-space: normal;
+}
+*/
+
+/*** popover info */
+.torrent-popover-info-button {
+	padding: 0 6px;
+	line-height: 1.3;
+	vertical-align: baseline;
+	font-size: 12px;
+}
+.torrent-popover-info-button + .popover {
+	opacity: .9;
+}
+.torrent-popover-info-button + .popover .popover-title {
+	padding: 5px 9px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.torrent-popover-info-button + .popover .popover-content {
+	padding: 5px 9px;
+}
+.torrent-popover-info-button + .popover .popover-content .list-group-item-text {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.torrent-popover-info-button + .popover .popover-title:hover,
+.torrent-popover-info-button + .popover .popover-content .list-group-item-text:hover {
+	white-space: normal;
+}
+/* popover info ***/
+
+.torrent-collapse-button {
+	font-family: Trebuchet MS, 나눔고딕;
+	margin-left: 5px;
+	padding: 0 3px;
+	line-height: 1.2;
+	vertical-align: inherit;
+}
+.torrent-collapse-badge {
+	padding: 0 5px !important;
+	vertical-align: inherit !important;
 }
 .torrent-ul {
 	margin-top: 5px;
