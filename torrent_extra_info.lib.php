@@ -37,8 +37,8 @@ function torrentExtraInfoTrans($matches) {
 	if ($data == false) {
 		//return "<".$matches[1]." ".$matches[2].">".$matches[3].$matches[4].$matches[6]."</".$matches[6].">";
 		// 에러일 경우 원본 다시 보냄
-		//return $matches[0];
-    	exit("1. Failed to read from". $torrent_file."<br>".print_r($matches,true));
+		return $matches[0];
+    	//exit("1. Failed to read from". $torrent_file."<br>".print_r($matches,true));
 	}
 	//    exit(print_r($data,true));
 	// Create a torrent object
